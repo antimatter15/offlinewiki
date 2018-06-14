@@ -308,6 +308,7 @@ function selectOutline(){
     var i = 0;
     while(findPos(els[i])[1] < scrollY) i++;
     els[i].link.className = 'selected';
+    // els[i].link.scrollIntoView(false);
   }catch(err){};
 }
 

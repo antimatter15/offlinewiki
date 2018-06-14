@@ -1,9 +1,8 @@
 <!doctype html>
-<html manifest="/svn/trunk/offline.appcache">
+<html>
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="progress-polyfill.css">
 
     <title>Offline Wiki</title>
     <!--
@@ -49,13 +48,10 @@
 
     <header id="toolbar">
 
-      <h1 id="title">Offline Wiki</h1>
-
-        <div style="display: none" id="download">
-          <div id="status"><b>Initializing</b></div>
-          <progress id="progress" value=""></progress>
-        </div>
-        <input type="text" placeholder="Search" autocomplete=off spellcheck=false  id="search">
+      <a class="logo" href="?">
+        offlinewiki.app
+      </a>
+    <div id="autocomplete" class="autocomplete" style="display:none; position: fixed; right: 20px; top: 28px"></div>
 
         <div id="nav">
 
@@ -64,11 +60,27 @@
           <a href="?Special:Random">Random</a>
         </div>
 
+
+
+        <input type="text" placeholder="Search" autocomplete=off spellcheck=false  id="search">
+
+
         <div id="outline">
         </div>
+
+
+        <div class="spacer"></div>
+
+        <div style="display: none" id="download">
+          <div id="status"><b>Initializing</b></div>
+          <progress id="progress" value=""></progress>
+        </div>
+
     </header>
 
     <div id="container">
+      <h1 id="title">Offline Wiki</h1>
+
       <div id="settings" style="display:none">
         <!--
         <p>
@@ -82,19 +94,6 @@
   </p>
    <p>
     <select id="dump" onchange="switch_dump(this.value)">
-
-      <option value="leet">1337 Dec 2011 (13.7MB)</option>
-      <option value="pi">314k Dec 2011 (1GB) </option>
-      <option value="semega">500k Oct 2012 (1.3GB) </option>
-      <option value="twelve">1960 Oct 2012 (21MB) </option>
-      <option value="simple">Simple English Oct 2012 (52MB) </option>
-      <option value="simple2014">Simple English June 2014 (59MB) </option>
-      <option value="simplex">1k Simple English June 2014 (2MB) </option>
-      <option value="enwiktionary2014">English Wiktionary November 2014 (55MB) </option>
-      <option value="simpledict2014">Simple Wiktionary November 2014 (2MB) </option>
-      <option value="fourteen4k">4k June 2014 (40MB) </option>
-      <option value="fourteen600k">600k June 2014 (1.6GB) </option>
-
     </select>
 
 
@@ -163,7 +162,7 @@
         </p>
         <h2>Credits</h2>
         <p>
-          This was put together by <a href='http://twitter.com/antimatter15'>@antimatter15</a> (Follow me on <a href="https://plus.google.com/116347431032639424492/about">Google+</a>!) but is built on <a href="http://en.wikipedia.org/wiki/User:Pilaf/InstaView">Instaview</a> by Pilaf, <a href="http://frankyan.com/labs/html5slider/">html5slider</a> by Frank Yan, <a href="https://github.com/LeaVerou/HTML5-Progress-polyfill">HTML5 Progress Polyfill</a> by Lea Verou, <a href="https://github.com/glinscott/lzmajs">lzmajs</a> by Gary Linscott, and of course all the content by the Wikipedia community.
+          This was put together by <a href='http://twitter.com/antimatter15'>@antimatter15</a> (Follow me on <a href="https://plus.google.com/116347431032639424492/about">Google+</a>!) but is built on <a href="http://en.wikipedia.org/wiki/User:Pilaf/InstaView">Instaview</a> by Pilaf, <a href="https://github.com/glinscott/lzmajs">lzmajs</a> by Gary Linscott, and of course all the content by the Wikipedia community.
         </p>
         <h2>Checking Compatibility</h2>
         <p>
@@ -209,18 +208,17 @@
 
 <div style="clear: both;"></div>
       </article>
-    </div>
 
-    <div id="autocomplete" class="autocomplete" style="display:none; position: fixed; right: 20px; top: 28px"></div>
 
     <footer>
-      Offline Wiki was made by <a href="http://twitter.com/antimatter15">@antimatter15</a>. His other projects can be found on <a href="http://antimatter15.com/">antimatter15.com</a>. The source code and instructions for compiling other languages for this project can be found on <a href="https://code.google.com/p/offline-wiki">google code</a>.
+      Offline Wiki was made by <a href="http://twitter.com/antimatter15">@antimatter15</a> between 2009 and 2018. The source code and instructions for compiling other languages for this project can be found on <a href="https://code.google.com/p/offline-wiki">google code</a>.
     </footer>
+
+    </div>
+
 
     <script src="js/autocomplete.js"></script>
     <script src="js/search.js"></script>
-    <script src="js/html5slider.js"></script>
-    <script src="js/progress-polyfill.js"></script>
     <script src="js/lzma.js"></script>
     <script src="js/render.js"></script>
     <script src="js/ui.js"></script>

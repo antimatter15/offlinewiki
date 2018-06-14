@@ -1,3 +1,16 @@
+wget https://dumps.wikimedia.org/other/pagecounts-ez/merged/pagecounts-2018-05-views-ge-5-totals.bz2
+
+bzip2 -dc pagecounts-2018-05-views-ge-5-totals.bz2 |  grep '^en.z ' | sed -e 's/^en.z //' | sort -rnk 2 > viewcounts.txt
+
+
+
+cat viewcounts.txt | sed -e 's/%3A/:/g' -e '/^MediaWiki:/d' -e '/^Help:/d' -e '/^CAT:/d' -e '/^Book:/d'  -e '/^Draft:/d' -e '/^Special:/d' -e '/^File:/d' -e '/^Talk:/d' -e '/^User:/d' -e '/^Images:/d'  -e '/^Wikipedia:/d' -e '/^Image:/d' -e '/^Category:/d' -e '/_talk:/d' -e '/ISO_639:/d'  -e '/Portal:/d' -e '/Template:/d' -e '/Module:/d' -e '/ISO_3166-1:/d'  -e '/MOS:/d'  > viewcounts_nofiles.txt
+
+
+
+
+
+
 TODO: make sure you do the sorts with the -df option!
 HACK: cat pi.index | sort -df -t $'|' -k1,1 > pi2.index
 
@@ -5,7 +18,12 @@ http://dumps.wikimedia.org/other/pagecounts-ez/
 
 It's already happened before, I wrote all these utilities and forgot how to use them. In what order and what it does.
 
-bzip2 -dc pagecounts-2011-08-all.bz2 | grep '^en.z' | sed 's/ [^ ]*$//g' | sed -e '/ [1-9]$/d' | sed -e '/%5B/d' | sed -e 's/^en.z //' > output.txt
+
+
+
+
+
+bzip2 -dc pagecounts-2011-08-all.bz2 | grep '^en.z ' | sed 's/ [^ ]*$//g' | sed -e '/ [1-9]$/d' | sed -e '/%5B/d' | sed -e 's/^en.z //' > output.txt
 
 cat output.txt | sort -rnk 2 > sorted.txt
 
