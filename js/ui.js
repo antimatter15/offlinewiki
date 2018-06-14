@@ -39,9 +39,12 @@ function loadArticle(query, callback){
   query = query.replace(/_/g, ' ');
   
   if(query == ''){
+    document.title = t(document.getElementById('title'), "Offline Wiki"); 
     document.getElementById('home').style.display = ''
     document.getElementById('content').style.display = 'none'
     document.getElementById('settings').style.display = 'none'
+    document.getElementById('outline').innerHTML = '';
+    if(callback) callback('');
     return;
   }
 
