@@ -721,8 +721,8 @@ var dumps = {
     indexsize: 4841174,
     dumpsize: 56420763,
     name: "Simple English June 2014 (59MB)",
-    indexurl: 'https://offline-wiki.s3-website-us-west-2.amazonaws.com/2014/simplewiki/simplewiki.index',
-    dumpurl: 'https://offline-wiki.s3-website-us-west-2.amazonaws.com/2014/simplewiki/simplewiki.lzma'
+    indexurl: 'https://s3-us-west-2.amazonaws.com/offline-wiki/2014/simplewiki/simplewiki.index',
+    dumpurl: 'https://s3-us-west-2.amazonaws.com/offline-wiki/2014/simplewiki/simplewiki.lzma'
   },
   // simple: {
   //   indexsize: 4367757,
@@ -756,15 +756,15 @@ var dumps = {
     indexsize: 87636,
     dumpsize: 42974257,
     name: "4k June 2014 (40MB)",
-    indexurl: 'https://offline-wiki.s3-website-us-west-2.amazonaws.com/2014/enwiki/enwiki4k.index',
-    dumpurl: 'https://offline-wiki.s3-website-us-west-2.amazonaws.com/2014/enwiki/enwiki4k.lzma'
+    indexurl: 'https://s3-us-west-2.amazonaws.com/offline-wiki/2014/enwiki/enwiki4k.index',
+    dumpurl: 'https://s3-us-west-2.amazonaws.com/offline-wiki/2014/enwiki/enwiki4k.lzma'
   },
   fourteen600k: {
     indexsize: 15763478,
     dumpsize: 1786467594,
     name: "600k June 2014 (1.6GB)",
-    indexurl: 'https://offline-wiki.s3-website-us-west-2.amazonaws.com/2014/enwiki/enwiki600k.index',
-    dumpurl: 'https://offline-wiki.s3-website-us-west-2.amazonaws.com/2014/enwiki/enwiki600k.lzma'
+    indexurl: 'https://s3-us-west-2.amazonaws.com/offline-wiki/2014/enwiki/enwiki600k.index',
+    dumpurl: 'https://s3-us-west-2.amazonaws.com/offline-wiki/2014/enwiki/enwiki600k.lzma'
   },
   // semega: {
   //   indexsize: 12513256,
