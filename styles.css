@@ -193,7 +193,7 @@ a.new {
 }
 
 
-table.wikitable {
+table {
     background-color: #f8f9fa;
     color: #222;
     margin: 1em 0;
@@ -201,7 +201,7 @@ table.wikitable {
     border-collapse: collapse;
 }
 
-table.wikitable > tr > th, table.wikitable > tr > td, table.wikitable > * > tr > th, table.wikitable > * > tr > td {
+table > tr > th, table > tr > td, table > * > tr > th, table > * > tr > td {
     border: 1px solid #a2a9b1;
     padding: 0.2em 0.4em;
 }
