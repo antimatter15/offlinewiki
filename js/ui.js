@@ -37,7 +37,11 @@ function loadArticle(query, callback){
   lastArticle = query;
   query = query.replace(/w(ikipedia)?:/,'');
   query = query.replace(/_/g, ' ');
+  
   if(query == ''){
+    document.getElementById('home').style.display = ''
+    document.getElementById('content').style.display = 'none'
+    document.getElementById('settings').style.display = 'none'
     return;
   }
 
@@ -47,6 +51,7 @@ function loadArticle(query, callback){
     document.getElementById('home').style.display = 'none'
     document.title = t(document.getElementById('title'), "Settings"); 
     document.getElementById('outline').innerHTML = '';
+    if(callback) callback(query);
     return;
   }
   document.getElementById('home').style.display = 'none'
@@ -85,7 +90,7 @@ function loadArticle(query, callback){
       });
     }
     randomPage();
-    t(document.getElementById('title'), "Special:Random");  
+    // t(document.getElementById('title'), "Special:Random");  
     return;
   }
   if(query == 'Special:Index'){
@@ -111,6 +116,7 @@ function loadArticle(query, callback){
     }
     document.getElementById('outline').innerHTML = '';
     updateIndex();
+    if(callback) callback(query);
     return;
   }
   if(query == 'Special:Dump'){
