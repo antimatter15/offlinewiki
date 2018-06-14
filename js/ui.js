@@ -44,10 +44,12 @@ function loadArticle(query){
   if(query == 'Special:Settings'){
     document.getElementById('settings').style.display = ''
     document.getElementById('content').style.display = 'none'
+    document.getElementById('home').style.display = 'none'
     document.title = t(document.getElementById('title'), "Settings"); 
     document.getElementById('outline').innerHTML = '';
     return;
   }
+  document.getElementById('home').style.display = 'none'
   document.getElementById('settings').style.display = 'none'
   document.getElementById('content').style.display = ''
   if(query == 'Special:Random'){
