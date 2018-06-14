@@ -258,7 +258,7 @@ function checkLinkUncached(){
 
 
 document.body.onclick = function(e){
-  if(e.button == 0  ){
+  if(e.button == 0 && !e.metaKey && !e.ctrlKey && !e.shiftKey ){
     var link = null;
     if(e.target.tagName.toLowerCase() == 'a'){
       link = e.target;

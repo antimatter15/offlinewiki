@@ -162,49 +162,9 @@
         </p>
         <h2>Credits</h2>
         <p>
-          This was put together by <a href='http://twitter.com/antimatter15'>@antimatter15</a> (Follow me on <a href="https://plus.google.com/116347431032639424492/about">Google+</a>!) but is built on <a href="http://en.wikipedia.org/wiki/User:Pilaf/InstaView">Instaview</a> by Pilaf, <a href="https://github.com/glinscott/lzmajs">lzmajs</a> by Gary Linscott, and of course all the content by the Wikipedia community.
+          This was put together by <a href='http://twitter.com/antimatter15'>@antimatter15</a> (Follow me on <a href="https://plus.google.com/116347431032639424492/about">Google+</a>!) but is built on <a href="http://en.wikipedia.org/wiki/User:Pilaf/InstaView">Instaview</a> by Pilaf, <a href="https://github.com/glinscott/lzmajs">lzmajs</a> by Gary Linscott, and of course all the content by the Wikipedia community. Special thanks to Guillermo Webster for CSS improvements, and Joel Gustafson for IPFS help. 
         </p>
-        <h2>Checking Compatibility</h2>
-        <p>
-          This has been tested on iOS 5, Chrome 17 and Firefox 10. It works best on Chrome.
-        </p>
-        <ul>
-        <script>
-          function test(name, val){
-            document.write('<li>'+(val?'<span style="color:green">':'<span style="color:red">')+name+'</span></li>');
-          }
-          function testBlobConstructor(){
-            try {
-              !!new Blob();
-            } catch (e) {
-              return false;
-            }
-            return true;
-          }
-
-          test('FileReader support', !!window.FileReader);
-          test('WebSQL support (optional)', !!window.openDatabase)
-          test('IndexedDB support (optional)', window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB);
-          test('FileSystem API (optional)', window.requestFileSystem || window.webkitRequestFileSystem);
-          test('BlobBuilder', window.WebKitBlobBuilder || window.BlobBuilder || window.MozBlobBuilder || testBlobConstructor());
-          test('Typed Arrays', window.Uint8Array);
-          test('Array Buffer', window.ArrayBuffer);
-          test('XHR responseType', 'responseType' in (new XMLHttpRequest))
-          test('Offline Application Cache', window.applicationCache);
-          test('WebWorkers', window.Worker);
-          test('History replaceState', history.replaceState);
-          test('Local Storage', window.localStorage);
-          test('querySelectorAll', document.querySelectorAll);
-        </script>
-
-        <script>
-          // CORS errors because of https
-          if(location.protocol == 'https:' && location.hostname == "offline-wiki.googlecode.com"){
-            location.protocol = 'http:';
-          }
-        </script>
-        </ul>
-
+       
 
 <div style="clear: both;"></div>
       </article>
