@@ -31,7 +31,7 @@ function updateIndex(){
 
 var lastArticlePos = 0;
 
-function loadArticle(query){
+function loadArticle(query, callback){
   if(lastArticle == query) return;
   console.log("load article", query);
   lastArticle = query;
@@ -75,7 +75,7 @@ function loadArticle(query){
         if(title && title.length){
           var parts = title[Math.floor(title.length * Math.random())].split(/\||\>/);
           if(dump.checkBlock(parse64(parts[1])) || online){
-            loadArticle(parts[0]);
+            loadArticle(parts[0], callback);
           }else{
             randomPage();
           }
@@ -128,21 +128,22 @@ function loadArticle(query){
   readArticle(query, function(title, text, pos){
     lastArticle = title;
     
-    if(document.title != title){
-      history.replaceState({}, '', '?'+title.replace(/ |%20/g,'_'));
-      scrollTo(0,0);
-    };
-
-
-    document.title = title;
-    t(document.getElementById('title'), title); 
-
     if(pos) lastArticlePos = pos;
     reposition();
     
     renderWikitext(text, function(html){
       //var parse_start = +new Date;
       document.getElementById('content').innerHTML = html;
+
+
+      // if(document.title != title){
+      //   history.replaceState({}, '', '?'+title.replace(/ |%20/g,'_'));
+      //   scrollTo(0,0);
+      // };
+
+      document.title = title;
+      t(document.getElementById('title'), title); 
+
       localStorage.lastArticleHTML = html;
       localStorage.lastArticleTitle = title;
       //console.log("Article Reflow time", +new Date - parse_start);      
@@ -151,6 +152,10 @@ function loadArticle(query){
       selectOutline();
       checkLink();
       checkLinkUncached();
+
+      if(callback){
+        callback(title)
+      }
     });
       
   })
@@ -268,13 +273,24 @@ document.body.onclick = function(e){
       link = e.target.parentNode;
     }
     if(link){
+      console.log(link.search, link.href)
       if(link.href.replace(/\?.*$/,'') == location.href.replace(/\?.*$/,'')){
         if(unescape(link.href.replace(/\#.*$/,'')) == unescape(location.href.replace(/\#.*$/,'')) && unescape(link.href) != unescape(location.href)){
           return true;
         }
         e.preventDefault();
-        history.pushState({}, '', link.href.replace(/ |%20/g,'_'));
-        loadArticle(decodeURIComponent(location.search.substr(1)))
+        // history.pushState({}, '', link.href.replace(/ |%20/g,'_'));
+        // loadArticle(decodeURIComponent(location.search.substr(1)))
+        // let 
+        // link.href.replace(/ |%20/g,'_')
+
+        loadArticle(decodeURIComponent(link.search.substr(1)), function(title){
+          // history.pushState({}, '', '');
+          history.pushState({}, '', '?'+title.replace(/ |%20/g,'_'));
+          scrollTo(0,0);
+        })
+        // console.log(link.search)
+
       }
     }
   }

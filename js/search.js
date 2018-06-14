@@ -155,7 +155,10 @@ autocomplete(document.getElementById('search'), document.getElementById('autocom
     history.pushState({}, '', '?'+query.replace(/ |%20/g,'_'));
   }
   lastSearchTime = new Date;
-  loadArticle(query);
+  loadArticle(query, function(title){
+    history.replaceState({}, '', '?'+title.replace(/ |%20/g,'_'));
+    scrollTo(0,0);
+  });
 });
 
 var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_', clookup = {};
