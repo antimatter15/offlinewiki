@@ -1,26 +1,21 @@
 CACHE MANIFEST
-#rev 15 dinosaur
+# rev 16
 
 CACHE:
-app.html
+index.html
 styles.css
-progress-polyfill.css
 
 js/autocomplete.js  
 js/search.js  
-js/html5slider.js  
-js/progress-polyfill.js  
 js/lzma.js  
 js/render.js  
 js/ui.js  
 js/fs2.js  
 
-image/bg.png
 image/xkcd.png
-image/badge.png
 
 FALLBACK:
-/ app.html
+/ index.html
 
 NETWORK:
 *

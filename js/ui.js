@@ -121,7 +121,7 @@ function loadArticle(query, callback){
     document.getElementById('outline').innerHTML = '';
     return;
   }
-  t(document.getElementById('title'), "Loading...");  
+  // t(document.getElementById('title'), "Loading...");  
   reposition();
   
   //console.log("loading article", query)
