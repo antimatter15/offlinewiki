@@ -331,6 +331,7 @@ function readArticle(query, callback){
     }
     //console.log(title, title in articleCache)
     if(title in articleCache && articleCache[title]) return callback(title, articleCache[title], location);
+    // console.log(position)
     dump.readBlock(position, 200000, function(buf){
       decompressPage(buf, function(){
         callback(title, articleCache[title] || (

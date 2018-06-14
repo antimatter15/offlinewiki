@@ -1,5 +1,7 @@
 var worker;
 function decompressPage(compressed, callback){
+  
+
   if(worker) worker.terminate();
   worker = new Worker('js/lzma.js');
   worker.addEventListener('error', function(e){ 
@@ -25,7 +27,8 @@ function decompressPage(compressed, callback){
 function handleDecompressed(block){
   var re = /=([^=\n\#\<\>\[\]\|\{\}]+)=\n\n\n\n/g;
   var matches = re.exec(block), lastIndex = 0;
-  //console.log(block);
+  
+
   while (matches){
     articleCache[matches[1].trim()] = block.slice(re.lastIndex, (matches = re.exec(block))?matches.index:undefined)
     //console.log(matches[1].trim())
