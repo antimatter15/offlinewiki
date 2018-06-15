@@ -5,7 +5,7 @@ function autocomplete(text, div, callback, onselect){
   }
   text.addEventListener('focus', function(){
     reposition();
-    if(results.length) div.style.display = '';
+    if(div.childNodes.length) div.style.display = '';
   }, true);
   text.addEventListener('input', function(){
     if(!text.value){
@@ -22,10 +22,12 @@ function autocomplete(text, div, callback, onselect){
         div.appendChild(result);
         return result
       });
-      if(results.length){
+      if(div.childNodes.length){
         div.style.display = '';
         select(results[0]);
         onselect(t(selected));
+      }else{
+        div.style.display = 'none';
       }
     })
   }, true);
@@ -47,12 +49,12 @@ function autocomplete(text, div, callback, onselect){
   }, true)
   text.addEventListener('keydown', function(e){
     if(e.keyCode == 38){ //up
-      if(results.length) div.style.display = '';
+      if(div.childNodes.length) div.style.display = '';
       select(selected.previousSibling || selected);
       onselect(t(selected));
       e.preventDefault();
     }else if(e.keyCode == 40){ //down
-      if(results.length) div.style.display = '';
+      if(div.childNodes.length) div.style.display = '';
       select(selected.nextSibling || selected);
       onselect(t(selected));
       e.preventDefault();
