@@ -766,6 +766,14 @@ var dumps = {
     indexurl: 'https://s3-us-west-2.amazonaws.com/offline-wiki/2014/enwiki/enwiki600k.index',
     dumpurl: 'https://s3-us-west-2.amazonaws.com/offline-wiki/2014/enwiki/enwiki600k.lzma'
   },
+
+  enwiki2018top5k: {
+    indexsize: 120320,
+    dumpsize: 62460497,
+    name: "5k June 2018 (63MB)",
+    indexurl: 'https://s3-us-west-2.amazonaws.com/offline-wiki/2018/enwiki/top5k.index',
+    dumpurl: 'https://s3-us-west-2.amazonaws.com/offline-wiki/2018/enwiki/top5k.lzma'
+  },
   // semega: {
   //   indexsize: 12513256,
   //   dumpsize: 1326480986,
@@ -831,7 +839,7 @@ function switch_dump(name, dft){
   clear_caches()
 }
 
-var default_dump = "simplex";
+var default_dump = "enwiki2018top5k";
 
 // if(location.hostname == "offline-wiki.googlecode.com"){
 //   default_dump = "twelve";
