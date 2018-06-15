@@ -243,6 +243,8 @@ function checkLink(){
     if(linkCache[url]){
       if(linkCache[url] == -1){
         link.className += ' new ';
+      }else{
+        link.className += ' found ';
       }
       link.className += ' cached ';
     }
@@ -256,6 +258,12 @@ function checkLinkUncached(){
   var link = document.getElementById('content').querySelector('a:not(.cached)');
   if(link && document.title != 'Index'){
     var url = unescape(link.href.replace(/^.*\?|\#.*$/g,'')).toLowerCase().replace(/[^a-z0-9]/g,'');
+    if(/Special:/.test(url)){
+      linkCache[url] = 1;
+      setTimeout(checkLinkUncached, 14);
+      return 
+    }
+
     runSearch(url, function(r){
       linkCache[url] = -1;
       if(r){
@@ -265,6 +273,8 @@ function checkLinkUncached(){
       }
       if(linkCache[url] == -1){
         link.className += ' new '
+      } else {
+        link.className += ' found ';
       }
       link.className += ' cached ';
       setTimeout(checkLinkUncached, 14);
@@ -352,7 +362,7 @@ function readArticle(query, callback){
     title = title.trim();
     if(location < 0){
       var msg = 'An unknown error occurred in searching for the page.';
-      if(location == -13) msg = 'No page with such a title was found in the index. Try switching to [[Special:Settings|the more inclusive dump]].'
+      if(location == -13) msg = 'No page with such a title was found in the index. Try switching to [[Special:Settings|a more inclusive dump]].'
       if(location == -29) msg = 'This page was caught in an infinite redirect loop.';
       return callback(title, "==Page Not Found==\n\n"+msg, 0);
     }
