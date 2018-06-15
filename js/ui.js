@@ -142,6 +142,8 @@ function loadArticle(query, callback){
     
     renderWikitext(text, function(html){
       //var parse_start = +new Date;
+      document.title = title;
+      t(document.getElementById('title'), title); 
       document.getElementById('content').innerHTML = html;
 
 
@@ -150,8 +152,6 @@ function loadArticle(query, callback){
       //   scrollTo(0,0);
       // };
 
-      document.title = title;
-      t(document.getElementById('title'), title); 
 
       localStorage.lastArticleHTML = html;
       localStorage.lastArticleTitle = title;
@@ -372,3 +372,19 @@ function readArticle(query, callback){
   })
 }
 
+
+
+if(window.applicationCache){
+
+window.applicationCache.addEventListener('updateready', function (e) {
+    if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+        // Browser downloaded a new app cache.
+        var appCache = window.applicationCache;
+        appCache.swapCache();
+        document.getElementById('update_available').style.display = '';
+    } else {
+        // Manifest didn't changed. Nothing new to server.
+    }
+}, false);
+
+}

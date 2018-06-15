@@ -1,8 +1,9 @@
 <!doctype html>
-<html>
+<html manifest="offline.appcache">
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="image/favicon.png">
 
     <title>Offline Wiki</title>
     <!--
@@ -49,20 +50,22 @@
     <header id="toolbar">
 
       <a class="logo" href="?">
-        o<span style="font-size: 80%">ffline</span>w<span style="font-size: 80%">iki</span>.a<span style="font-size: 80%">pp</span>
+        O<span style="font-size: 80%">ffline</span>W<span style="font-size: 80%">iki</span>.A<span style="font-size: 80%">pp</span>
       </a>
+
+      <div class="controls">
     <div id="autocomplete" class="autocomplete" style="display:none; position: fixed; right: 20px; top: 28px"></div>
 
         <div id="nav">
-
           <a href="?Special:Settings">Settings</a>
           <a href="?Special:Index">Index</a>
           <a href="?Special:Random">Random</a>
         </div>
 
-
-
         <input type="text" placeholder="Search" autocomplete=off spellcheck=false  id="search">
+
+      </div>
+
 
 
         <div id="outline">
@@ -79,6 +82,11 @@
     </header>
 
     <div id="container">
+      <article id="update_available" onclick="location.reload()" style=
+      "display: none;">
+        An update to <b>Offline Wiki</b> has been downloaded and installed. <b>Click here</b> to apply the update.
+      </article>
+
       <h1 id="title">Offline Wiki</h1>
 
       <div id="settings" style="display:none">

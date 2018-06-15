@@ -174,8 +174,13 @@ function parse64(string){
 
 
 
+var blockCache = {}
 function findBlock(query, callback){
-
+  if(query in blockCache){
+    var hit = blockCache[query];
+    return callback(hit[0], hit[1], hit[2])
+  }
+  
   runSearch(query, function(results, pos){
     if(!results[0]){
       callback(query, 0, -13);
@@ -186,6 +191,7 @@ function findBlock(query, callback){
         callback(query, 0, -29);
       }
     }else{
+      blockCache[query] = [results[0].title, results[0].pointer, pos]
       callback(results[0].title, results[0].pointer, pos)
     }
   })

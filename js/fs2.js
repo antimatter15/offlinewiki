@@ -788,6 +788,16 @@ for(var dump_id in dumps){
 
 var index = null, dump = null;
 
+
+function clear_caches(){
+  midpointCache = {}
+  indexCache = {}
+  blockCache = {}
+  renderCache = {}
+  redirectCache = {};
+  linkCache = {};
+}
+
 function switch_dump(name, dft){
   if(!dumps[name] && dft){name = dft}
 
@@ -818,6 +828,7 @@ function switch_dump(name, dft){
   console.log("initialized fs "+name);
   setTimeout(updateProgress, 10);
   setTimeout(beginDownload, 1337);
+  clear_caches()
 }
 
 var default_dump = "simplex";
@@ -974,6 +985,8 @@ function local_files(files){
   
   index = VirtualFile('file_index', indexsize(), 1024 * 4, indices[0]); //4KiB chunk size
   dump = VirtualFile('file_dump',   dumpsize(),   1024 * 500, dumps[0]); //500KB chunk size (note, that it has to be a multiple of the underlying file subdivision size
+  index.progress = function(){return 1}
+  clear_caches()
 
   console.log("initialized fs locally");
   setTimeout(updateProgress, 10);

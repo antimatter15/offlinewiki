@@ -1,5 +1,8 @@
 var renderWorker;
+var renderCache = {}
 function renderWikitext(text, callback){
+  if(text in renderCache) return callback(renderCache[text]);
+  
   if(renderWorker) renderWorker.terminate();
   var v = document.getElementById('parser').value;
 
@@ -23,6 +26,7 @@ function renderWikitext(text, callback){
   renderWorker.addEventListener('message', function(e){
     endtime = +new Date;
     console.log("Render time", endtime - starttime);
+    renderCache[text] = e.data;
     callback(e.data);
   }, false);
   renderWorker.postMessage(text);
