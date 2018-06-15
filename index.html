@@ -1,0 +1,198 @@
+<!doctype html>
+<html manifest="offline.appcache">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="image/favicon.png">
+
+    <title>Offline Wiki</title>
+    <!--
+      If you're reading this in the distant future, say, 2012, and you aren't preparing
+      for the imminent apocalyptic scenarios (or if you are, that would be cool too), you
+      should totally email me at antimatter15@gmail.com.
+
+      If you're reading this in the post-apocalyptic world, or if for some odd reason
+      skynet was actually powered by Amazon EC2 during the great outage of April 21st,
+      2011, and somehow the malfunctioning of the cloud resulted in the prolonging of
+      human existence, then you should still email me because there might be a decent
+      chance that I would have survived the chaos which ensued during the eventless
+      apocalypse.
+
+      And in case the future me ever reads this. Hi. I'm you from the past. It would be
+      pretty interesting to meet you. But regardless, I would probably be disappointed
+      in whatever you've done because life seems to continue according to my diminishing
+      intelligence hypothesis. Probably, you're at least thinking that you're a lot dumber
+      than you were when I wrote this, and wondering why I consider myself a different person
+      when existing in different times. However, the people who aren't me who might happen
+      to read this document will probably find it really weird that some guy talks to himself
+      about the future and past and is probably insane or suffering some odd self diagnosed
+      inferiority complex instigated by the two time rejection from an unnamed institution
+      for people interested in science and technology. But saying that would make future me
+      feel weird as well as future non-mes.
+    -->
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1367972-7']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </head>
+  <body>
+
+
+    <header id="toolbar">
+
+      <a class="logo" href="?">
+        O<span style="font-size: 80%">ffline</span>W<span style="font-size: 80%">iki</span>.A<span style="font-size: 80%">pp</span>
+      </a>
+
+      <div class="controls">
+    <div id="autocomplete" class="autocomplete" style="display:none; position: fixed; right: 20px; top: 28px"></div>
+
+        <div id="nav">
+          <a href="?Special:Settings">Settings</a>
+          <a href="?Special:Index">Index</a>
+          <a href="?Special:Random">Random</a>
+        </div>
+
+        <input type="text" placeholder="Search" autocomplete=off spellcheck=false  id="search">
+
+      </div>
+
+
+
+        <div id="outline">
+        </div>
+
+
+        <div class="spacer"></div>
+
+        <div style="display: none" id="download">
+          <div id="status"><b>Initializing</b></div>
+          <progress id="progress" value=""></progress>
+        </div>
+
+    </header>
+
+    <div id="container">
+      <article id="update_available" onclick="location.reload()" style=
+      "display: none;">
+        An update to <b>Offline Wiki</b> has been downloaded and installed. <b>Click here</b> to apply the update.
+      </article>
+
+      <h1 id="title">Offline Wiki</h1>
+
+      <div id="settings" style="display:none">
+        <!--
+        <p>
+          This is the settings page. One day, in the distant future, this will be idealistic and overflowing with neat tools and great notions.
+
+
+        </p>-->
+
+    <p>
+  <b>Select the file</b> you want to use. There isn't much to choose from, I know. I'm sorry.
+  </p>
+   <p>
+    <select id="dump" onchange="switch_dump(this.value)">
+    </select>
+
+
+   </p>
+   <p>
+
+     You can also choose to <b>open a local index/dump pair</b> by selecting them from the file field below. You can also drag and drop the files onto this page. Note that you need to select <b>two</b> files.
+
+     This is the recommended approach on browsers that don't support requestFileSystem.
+</p><p>
+     <input type="file" multiple onchange="local_files(this.files)">
+
+   </p>
+    <p>
+    Select the <b>parsing engine</b>. This takes the wikitext and turns it into html which is then meant for human eyes.
+    </p>
+<p>
+    <select id="parser">
+      <option value="instawiki">InstaView Parser</option>
+      <option value="source">Source View</option>
+      <option value="splus">Enhanced Source View</option>
+      <option value="basic">Basic Parser</option>
+    </select>
+   </p>
+    <p>
+      This will <b>pause the current downloads</b> for the remainder of this session.
+    </p>
+   <p>
+
+   <button onclick="stop_download=true;this.disabled=true">Stop downloads</button>
+   </p>
+   <p>
+    This will <b>delete the current dump</b> from your computer. The file can be downloaded again.
+   </p>
+   <p>
+   <button onclick="nero()">Delete dump</button>
+   </p>
+      </div>
+      <article id="content">
+
+      </article>
+      <article id="home">
+
+        <h2>Introduction</h2>
+
+  <img id="xkcd" src="image/xkcd.png" usemap="#xkcd" border="0" style="float:right;margin-left:15px;margin-bottom:15px;" width="400" height="400" alt="" title="The obligatory xkcd strip." />
+<map id="xkcd" name="xkcd">
+<area shape="rect" coords="124,192,286,236" href="http://xkcd.com/214/" alt="" title=""    />
+<area shape="rect" coords="118,60,276,82" href="?Tacoma_Narrows_Bridge" alt="" title=""    />
+<area shape="rect" coords="110,90,180,120" href="?Suspension_bridge" alt="" title=""    />
+<area shape="rect" coords="221,92,291,122" href="?Structural_failure" alt="" title=""    />
+<area shape="rect" coords="16,336,92,369" href="?William_Howard_Taft" alt="" title=""    />
+<area shape="rect" coords="77,301,146,335" href="?24-hour_clock" alt="" title=""    />
+<area shape="rect" coords="121,344,190,378" href="?Lesbianism_in_erotica" alt="" title=""    />
+<area shape="rect" coords="201,315,252,332" href="?Batman" alt="" title=""    />
+<area shape="rect" coords="201,343,252,376" href="?Death_from_laughter" alt="" title=""    />
+<area shape="rect" coords="257,331,308,364" href="?Taylor_Hanson" alt="" title=""    />
+<area shape="rect" coords="320,295,361,315" href="?Cotton" alt="" title=""    />
+<area shape="rect" coords="323,324,371,344" href="?T-shirt" alt="" title=""    />
+<area shape="rect" coords="313,352,389,389" href="?Wet_T-shirt_contest" alt="" title=""    />
+</map>
+
+        <p>
+        This application saves and <b>downloads a copy</b> of nearly all of the textual content of the <b>English Wikipedia</b> locally so that it can be <b>accessed without internet connectivity</b>. It downloads and saves a compressed dump file and an index, 14MB for the small version and 1GB for the larger one (you can select which one from the <a href="?Special:Settings">settings</a>). Using WebWorkers and the File API, it seeks to a specific part of the compressed dump, decompresses it with a pure javascript implementation of LZMA and renders the Wikitext as HTML. All of this happens almost <b>instantly</b>.
+      </p>
+        <h2>Install</h2>
+        <p>
+          You don't really need to, just <b>bookmark this page</b> and you can use it any time with or without internet access. This should work for Google Chrome, Opera, Firefox and Safari. It works best in Chrome, which supports requestFileSystem (other browsers  are backed by a less-efficient IndexedDB/WebSQL store).
+        </p>
+        <h2>Credits</h2>
+        <p>
+          This was put together by Kevin Kwok (<a href='http://twitter.com/antimatter15'>@antimatter15</a>) but is built on <a href="http://en.wikipedia.org/wiki/User:Pilaf/InstaView">Instaview</a> by Pilaf, <a href="https://github.com/glinscott/lzmajs">lzmajs</a> by Gary Linscott, and of course all the content by the Wikipedia community. Special thanks to Guillermo Webster for CSS improvements, and Joel Gustafson for IPFS help. 
+        </p>
+       
+
+<div style="clear: both;"></div>
+      </article>
+
+      <div class="spacer"></div>
+    <footer>
+      Offline Wiki was made by <a href="http://twitter.com/antimatter15">@antimatter15</a> between 2009 and 2018. The source code and instructions for compiling other languages for this project can be found on <a href="https://github.com/antimatter15/offlinewiki">github</a>.
+    </footer>
+
+    </div>
+
+
+    <script src="js/autocomplete.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/lzma.js"></script>
+    <script src="js/render.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/fs2.js"></script>
+  </body>
+</html>

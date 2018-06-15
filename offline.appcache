@@ -1,0 +1,21 @@
+CACHE MANIFEST
+# Thu Jun 14 17:29:49 PDT 2018
+
+CACHE:
+index.html
+styles.css
+
+js/autocomplete.js  
+js/search.js  
+js/lzma.js  
+js/render.js  
+js/ui.js  
+js/fs2.js  
+
+image/xkcd.png
+
+FALLBACK:
+/ index.html
+
+NETWORK:
+*
