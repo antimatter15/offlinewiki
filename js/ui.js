@@ -343,7 +343,7 @@ function selectOutline(){
   try{
     var els = document.getElementById('content').querySelectorAll('h1,h2,h3,h4,h5,h6');
     var i = 0;
-    while(findPos(els[i])[1] < scrollY) i++;
+    while(findPos(els[i])[1] + els[i].offsetHeight / 2 < scrollY) i++;
     els[i].link.className = 'selected';
     // els[i].link.scrollIntoView(false);
   }catch(err){};
