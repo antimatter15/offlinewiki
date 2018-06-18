@@ -343,7 +343,7 @@ function selectOutline(){
   try{
     var els = document.getElementById('content').querySelectorAll('h1,h2,h3,h4,h5,h6');
     var i = 0;
-    while(findPos(els[i])[1] + els[i].offsetHeight / 2 < scrollY) i++;
+    while(findPos(els[i])[1] + els[i].offsetHeight < scrollY) i++;
     els[i].link.className = 'selected';
     // els[i].link.scrollIntoView(false);
   }catch(err){};
@@ -386,15 +386,13 @@ function readArticle(query, callback){
 
 if(window.applicationCache){
 
-window.applicationCache.addEventListener('updateready', function (e) {
-    if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
-        // Browser downloaded a new app cache.
-        var appCache = window.applicationCache;
-        appCache.swapCache();
-        document.getElementById('update_available').style.display = '';
-    } else {
-        // Manifest didn't changed. Nothing new to server.
-    }
-}, false);
+    window.applicationCache.addEventListener('updateready', function (e) {
+        if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+            // Browser downloaded a new app cache.
+            document.getElementById('update_available').style.display = '';
+        } else {
+            // Manifest didn't changed. Nothing new to server.
+        }
+    }, false);
 
 }

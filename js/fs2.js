@@ -57,6 +57,43 @@
   rework this to be more object-orient-ish.
 */
 
+
+
+const ipfs = new Ipfs({
+    EXPERIMENTAL: {
+        pubsub: true,
+        sharding: true,
+        dht: true,
+        relay: true,
+    },
+    // config: {
+    //     "Addresses": {
+    //         // "API": "",
+    //         // "Gateway": "",
+    //         "Swarm": [
+    //             // "/ip4/0.0.0.0/tcp/0",
+    //             // '/dns4/wrtc-star.discovery.libp2p.io/tcp/443/wss/p2p-webrtc-star'
+    //             // "/dns4/star-signal.cloud.ipfs.team/wss/p2p-webrtc-star/ipfs/"
+                
+    //             // "/ip4/0.0.0.0/tcp/4002",
+    //             // "/ip4/127.0.0.1/tcp/4003/ws",
+    //             '/dns4/wrtc-star.discovery.libp2p.io/tcp/443/wss/p2p-webrtc-star'
+
+    //         ]
+    //     }
+    // }
+})
+
+ipfs.on('ready', () => {
+  // Your node is now ready to use \o/
+  console.log('ipfs node is ready')
+
+  // stopping a node
+  
+})
+
+
+
 function VirtualFile(name, size, chunksize, network){
   //var chunksize = 2 * 1024 //512 * 1024;
   //var blocksize = 1 * 1024 //200 * 1024; //blocksize must be < chunksize
