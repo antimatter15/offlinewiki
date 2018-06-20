@@ -30,6 +30,8 @@ function updateIndex(){
 }
 
 var lastArticlePos = 0;
+var lastArticleQuery;
+
 
 function loadArticle(query, callback){
   if(lastArticle == query) return;
@@ -134,13 +136,26 @@ function loadArticle(query, callback){
   reposition();
   
   //console.log("loading article", query)
+  lastArticleQuery = query;
+  var hasRendered = false;
+  setTimeout(function(){
+    if(lastArticleQuery !== query) return;
+    if(!hasRendered){
+      t(document.getElementById('title'), "Loading...");  
+    }
+  }, 300)
   readArticle(query, function(title, text, pos){
+    if(lastArticleQuery !== query) return;
+
     lastArticle = title;
     
     if(pos) lastArticlePos = pos;
     reposition();
     
     renderWikitext(text, function(html){
+      if(lastArticleQuery !== query) return;
+      hasRendered = true;
+
       //var parse_start = +new Date;
       document.title = title;
       t(document.getElementById('title'), title); 
