@@ -733,79 +733,7 @@ var dumps = {
     indexurl: "https://data.offlinewiki.app/dumps/enwiki-20260601-top100k.index",
     dumpurl: "https://data.offlinewiki.app/dumps/enwiki-20260601-top100k.lzma"
   },
-  leet: {
-    indexsize: 27509,
-    dumpsize: 13688465,
-    name: '1k Dec 2011 (13.7MB)',
-    // indexurl: 'http://offline-wiki.googlecode.com/files/1337.new.index',
-    // dumpurl: 'http://offline-wiki.googlecode.com/files/1337.lzma',
-
-    indexurl: 'https://ipfs.io/ipfs/QmSsoFo5gWmsMRXVN2KptH1sC2k4pNY6wppaZQXFseDk2Z',
-    dumpurl: 'https://ipfs.io/ipfs/QmbS1ucZyyFrVEPoxhJWVBvxhocwKdM1v3wrHVcjiZcEpa'
-  },
-  // local_leet: {
-  //   indexsize: 27509,
-  //   dumpsize: 13688465,
-  //   indexurl: '/Downloads/split2/old/1337.new.index',
-  //   dumpurl: '/Downloads/split2/old/1337.lzma',
-  // },
-  // local_pi: {
-  //   indexsize: 7924566,
-  //   dumpsize: 1025405491,
-  //   indexurl: '/Downloads/split2/pi.index',
-  //   dumpurl: function(ptr){
-  //     var CHUNK_SIZE = 100000000;
-  //     return ['/Downloads/split2/splitpi/pi_' +
-  //     'aa,ab,ac,ad,ae,af,ag,ah,ai,aj,ak'.split(',')[Math.floor(ptr / CHUNK_SIZE)],
-  //       ptr % CHUNK_SIZE];
-  //   }
-  // },
-  // pi: {
-  //   indexsize: 7924566,
-  //   dumpsize: 1025405491,
-  //   name: '314k Dec 2011 (1GB)',
-  //   indexurl: 'http://offline-wiki.googlecode.com/files/pi.index',
-  //   dumpurl: function(ptr){
-  //     var CHUNK_SIZE = 100000000;
-  //     return ['http://offline-wiki.googlecode.com/files/pi_' +
-  //     'aa,ab,ac,ad,ae,af,ag,ah,ai,aj,ak'.split(',')[Math.floor(ptr / CHUNK_SIZE)],
-  //       ptr % CHUNK_SIZE];
-  //   }
-  // },
-
-  // local_twelve: {
-  //   indexsize: 40302,
-  //   dumpsize: 21085934,
-  //   indexurl: '/offline-wiki/tools/2012.index',
-  //   dumpurl: '/offline-wiki/tools/2012.lzma'
-  // },
-  twelve: {
-    indexsize: 40302,
-    dumpsize: 21085934,
-    name: "1k Oct 2012 (21MB)",
-    // indexurl: 'http://offline-wiki.googlecode.com/files/2012.index',
-    // dumpurl: 'http://offline-wiki.googlecode.com/files/2012.lzma'
-    indexurl: 'https://ipfs.io/ipfs/QmYsdxcvaZg3ZivBAMfDzYdid3VqszaYjrNmgoaoTZYnnP',
-    dumpurl: 'https://ipfs.io/ipfs/QmVSttpZH7NWW7DmjqHuJbDTEVEmhbA7nzTCr7fPpvNHjW'
-  },
-  simple2014: {
-    indexsize: 4841174,
-    dumpsize: 56420763,
-    name: "Simple English June 2014 (59MB)",
-    indexurl: 'https://ipfs.io/ipfs/QmcyKtCWk57DT4btWuWn1YMfe6aKEud5oSz72jeH1fKesy',
-    dumpurl: 'https://ipfs.io/ipfs/QmUM8KrQiKJGvxLTJLUyj1RrSV5A7xTegLAmgeYpr9CdcQ'
-    // indexurl: 'https://s3-us-west-2.amazonaws.com/offline-wiki/2014/simplewiki/simplewiki.index',
-    // dumpurl: 'https://s3-us-west-2.amazonaws.com/offline-wiki/2014/simplewiki/simplewiki.lzma'
-  },
-
-  // simple: {
-  //   indexsize: 4367757,
-  //   dumpsize: 48357515,
-  //   name: "Simple English Oct 2012 (52MB)",
-  //   indexurl: 'http://offline-wiki.googlecode.com/files/simple.index',
-  //   dumpurl: 'http://offline-wiki.googlecode.com/files/simple.lzma'
-  // },
-
+  // Legacy remote dumps are omitted because their old IPFS/S3 backing URLs are no longer available.
   simplex: {
     indexsize: 14271,
     dumpsize: 1562298,
@@ -819,66 +747,7 @@ var dumps = {
     name: "Simple Wiktionary November 2014 (2MB)",
     indexurl: 'https://data.offlinewiki.app/dumps/simpledict.index',
     dumpurl: 'https://data.offlinewiki.app/dumps/simpledict.lzma'
-  },
-  enwiktionary2014: {
-    indexsize: 9552314,
-    dumpsize: 46693348,
-    name: "English Wiktionary November 2014 (55MB)",
-    // indexurl: 'https://s3-us-west-2.amazonaws.com/offline-wiki/2014/enwiktionary/wiktionary.index',
-    // dumpurl: 'https://s3-us-west-2.amazonaws.com/offline-wiki/2014/enwiktionary/wiktionary.lzma',
-    indexurl: 'https://ipfs.io/ipfs/QmZtaV2qvTWEejBGdwpwJSRgvG4o1ocWd5gA4XXn5usGbS',
-    dumpurl: 'https://ipfs.io/ipfs/QmXFGaiFJ2hN34mrSMWTe29HmV9U2M8ysGRinGEUdC9zc7'
-  },
-  fourteen4k: {
-    indexsize: 87636,
-    dumpsize: 42974257,
-    name: "4k June 2014 (40MB)",
-    // indexurl: 'https://s3-us-west-2.amazonaws.com/offline-wiki/2014/enwiki/enwiki4k.index',
-    indexurl: "https://ipfs.io/ipfs/QmS2foVwZ5ohYYFbevsrU1yXDW4oZxna9cAt2sa3Q3GoWM",
-    dumpurl: "https://ipfs.io/ipfs/QmZuJ4AsngxJpLcKGv1yMAnP5fHyanV1SNt9PLyvonWM2g"
-    // dumpurl: 'https://s3-us-west-2.amazonaws.com/offline-wiki/2014/enwiki/enwiki4k.lzma'
-  },
-  fourteen600k: {
-    indexsize: 15763478,
-    dumpsize: 1786467594,
-    name: "600k June 2014 (1.6GB)",
-    // indexurl: 'https://s3-us-west-2.amazonaws.com/offline-wiki/2014/enwiki/enwiki600k.index',
-    // dumpurl: 'https://s3-us-west-2.amazonaws.com/offline-wiki/2014/enwiki/enwiki600k.lzma'
-    
-    indexurl: 'https://ipfs.io/ipfs/QmUk1ugjb99Zx2H2iebHABcu25vDhqjmSbjMFP16b3u6Rw',
-    dumpurl: 'https://ipfs.io/ipfs/QmaPSmkjQDGgNxmnatjXeKiHadrefwZvurfYXcdK2Dg9ox'
-
-  },
-
-  enwiki2018top5k: {
-    indexsize: 120320,
-    dumpsize: 62460497,
-    name: "5k June 2018 (63MB)",
-    indexurl: 'https://ipfs.io/ipfs/QmetskupHibDNx7avyGeKVC6g5ki7xiy8kaPhENouws7ZF',
-    dumpurl: 'https://ipfs.io/ipfs/QmavSMKXthyfpNkL6hdn1oh1YAcTTUSwFVEj21mx65F3Lz'
-    // indexurl: 'https://s3-us-west-2.amazonaws.com/offline-wiki/2018/enwiki/top5k.index',
-    // dumpurl: 'https://s3-us-west-2.amazonaws.com/offline-wiki/2018/enwiki/top5k.lzma'
-  },
-
-  enwiki2018top271k: {
-    indexsize: 6927156,
-    dumpsize: 1312715564,
-    name: '271k June 2018 (1.3GB)',
-    indexurl: 'https://ipfs.io/ipfs/QmPbZ6a29cJyEGf6i97bHjqapUHRnyVsFV2JP13q5vbg9Z',
-    dumpurl: 'https://ipfs.io/ipfs/Qmea6gXHjRTj3TLUFAX8R67DLS7iEyzGVzPvihz1ejKgbB'
   }
-  // semega: {
-  //   indexsize: 12513256,
-  //   dumpsize: 1326480986,
-  //   name: "500k Oct 2012 (1.3GB)",
-  //   indexurl: 'http://offline-wiki.googlecode.com/files/semega.index',
-  //   dumpurl: function(ptr){
-  //     var CHUNK_SIZE = 161803398;
-  //     return ['http://offline-wiki.googlecode.com/files/semega_' +
-  //     'aa,ab,ac,ad,ae,af,ag,ah,ai'.split(',')[Math.floor(ptr / CHUNK_SIZE)],
-  //       ptr % CHUNK_SIZE];
-  //   }
-  // }
 }
 
 
