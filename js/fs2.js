@@ -726,6 +726,13 @@ function dumpurl(ptr){
 
 
 var dumps = {
+  enwiki2026top100k: {
+    indexsize: 2449594,
+    dumpsize: 782682141,
+    name: "100k English Wikipedia June 2026 (747MB)",
+    indexurl: "https://data.offlinewiki.app/dumps/enwiki-20260601-top100k.index",
+    dumpurl: "https://data.offlinewiki.app/dumps/enwiki-20260601-top100k.lzma"
+  },
   leet: {
     indexsize: 27509,
     dumpsize: 13688465,
@@ -803,15 +810,15 @@ var dumps = {
     indexsize: 14271,
     dumpsize: 1562298,
     name: "1k Simple English June 2014 (2MB)",
-    indexurl: 'dumps/simplex.index',
-    dumpurl: 'dumps/simplex.lzma'
+    indexurl: 'https://data.offlinewiki.app/dumps/simplex.index',
+    dumpurl: 'https://data.offlinewiki.app/dumps/simplex.lzma'
   },
   simpledict2014: {
     indexsize: 304628,
     dumpsize: 1422998 ,
     name: "Simple Wiktionary November 2014 (2MB)",
-    indexurl: 'dumps/simpledict.index',
-    dumpurl: 'dumps/simpledict.lzma'
+    indexurl: 'https://data.offlinewiki.app/dumps/simpledict.index',
+    dumpurl: 'https://data.offlinewiki.app/dumps/simpledict.lzma'
   },
   enwiktionary2014: {
     indexsize: 9552314,
@@ -925,7 +932,7 @@ function switch_dump(name, dft){
   clear_caches()
 }
 
-var default_dump = "enwiki2018top5k";
+var default_dump = "enwiki2026top100k";
 
 // if(location.hostname == "offline-wiki.googlecode.com"){
 //   default_dump = "twelve";
