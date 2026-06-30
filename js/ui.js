@@ -1,3 +1,23 @@
+function displayTitle(title){
+  return (title || '').replace(/_/g, ' ');
+}
+
+function escapeHTML(value){
+  return String(value).replace(/[&<>"']/g, function(ch){
+    return {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    }[ch];
+  });
+}
+
+function articleHref(title){
+  return '?' + encodeURIComponent(title).replace(/%20/g, '_');
+}
+
 function incrementSlider(pagesDelta){
   var step = document.getElementById('slider').step - 0;
   document.getElementById('slider').value -= pagesDelta * -step;
@@ -20,9 +40,10 @@ function updateIndex(){
     var content = 'Data Inaccessible or Corrupt';
     if(text){
       content = text.split('\n').slice(1, -1).map(function(x){
-        var title = x.split(/\||>/)[0];
-        var pos = parse64(x.split(/\||>/)[1]);
-        return '<a href="?'+title+'" title="'+pos+'" class="'+((!isNaN(pos) && dump.checkBlock(pos))?'':'notcached')+'">'+title+'</a>';
+        var parts = x.split(/\||>/);
+        var title = parts[0];
+        var pos = parse64(parts[1]);
+        return '<a href="' + articleHref(title) + '" title="' + escapeHTML(pos) + '" class="' + ((!isNaN(pos) && dump.checkBlock(pos)) ? '' : 'notcached') + '">' + escapeHTML(displayTitle(title)) + '</a>';
       }).join("<br>")
     }
     document.getElementById('pageitems').innerHTML = '<a href="javascript:incrementSlider(-1)" class="prev">Previous</a> / <a class="next" href="javascript:incrementSlider(1)">Next</a><br>' + content;
