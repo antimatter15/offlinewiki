@@ -578,7 +578,8 @@ function VirtualFile(name, size, chunksize, network){
     }
     fr.onerror = function(e){
       console.debug("file read error at read file chunk");
-      console.error(e)
+      console.error(e);
+      callback(false);
     }
     fr.readAsArrayBuffer(blobSlice(file, chunksize * chunk, chunksize));
   }
