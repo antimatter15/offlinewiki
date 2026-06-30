@@ -8,6 +8,8 @@ In 2011, I realized that the web platform now had the features necessary to impl
 
 > Another reason for building an offline Wikipedia dump reader is simply that I can. There’s a lot of cool and cutting edge stuff in this. It uses the file input JS API, FileReader, Blobs, WebWorkers, fast Javascript to handle a pure-JS implementation of the LZMA compression algorithm, and the FileSystem API.
 
-I would revisit the project every couple of years, with another significant revamp happening in 2018, which included a gradient sidebar and the new domain `offlinewiki.app`. I think around this time I also incorporated IPFS to serve the chunks of the dumps. 
+I would revisit the project every couple of years. In 2014, I updated the project for some new browser APIs (such as file drag-and-drop) and added support for Firefox and updated a few of the dumps.
+
+I did another significant revamp in 2018, which included a gradient sidebar and the new domain `offlinewiki.app`. I think around this time I also incorporated IPFS to serve the chunks of the dumps. 
 
 It mostly existed there untouched until I forgot to renew the domain around 2023, so it was down for a few years. Now in 2016, thanks to the power of Codex and the fact that I still apparently own the domain, it's now back up and been fixed even though it's probably somewhat less useful or relevant. 
