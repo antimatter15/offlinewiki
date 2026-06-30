@@ -2,8 +2,8 @@
   color-scheme: light dark;
   --page-bg: #eff1ff;
   --surface: #fefdfc;
-  --surface-soft: #f5f7ff;
-  --sidebar-bg: rgba(239, 241, 255, 0.82);
+  --surface-soft: #e8e8e8;
+  --sidebar-bg: transparent;
   --text: #111111;
   --muted: #4f566b;
   --link: #0645ad;
@@ -74,13 +74,6 @@ body.dragging {
   position: relative;
 
   line-height: 1.5em;
-}
-
-#content,
-#home,
-#settings {
-  max-width: 980px;
-  width: 100%;
 }
 
 p {
@@ -173,24 +166,10 @@ img {
   height: auto;
 }
 
-button,
 input,
-select {
-  font: inherit;
+select,
+button {
   max-width: 100%;
-}
-
-button,
-select {
-  background: var(--control-bg);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  color: var(--text);
-  padding: 0.45em 0.65em;
-}
-
-input[type="file"] {
-  color: var(--text);
 }
 
 #titlebar {
@@ -216,7 +195,7 @@ input[type="file"] {
   width: 270px;
   bottom: 0;
   background: var(--sidebar-bg);
-  border-right: 1px solid var(--border);
+  border-right: 0;
 
   display: flex;
   flex-direction: column;
@@ -320,9 +299,6 @@ table {
   margin: 1em 0;
   border: 1px solid var(--table-border);
   border-collapse: collapse;
-  display: block;
-  max-width: 100%;
-  overflow-x: auto;
 }
 
 table > tr > th,
@@ -529,22 +505,39 @@ a.prev {
     --focus-shadow: 0 5px 22px rgba(0, 0, 0, 0.48);
     --drag-bg: #285a38;
   }
+
+  #toolbar {
+    border-right: 1px solid var(--border);
+  }
+
+  button,
+  select {
+    background: var(--control-bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  input[type="file"] {
+    color: var(--text);
+  }
 }
 
 @media all and (max-width: 760px) {
   body {
     background-attachment: scroll;
+    padding-top: 150px;
   }
 
   #toolbar {
-    position: sticky;
+    position: fixed;
     top: 0;
     width: 100%;
     bottom: auto;
     z-index: 30;
+    background: var(--page-bg);
     border-right: 0;
     border-bottom: 1px solid var(--border);
-    box-shadow: var(--shadow);
+    box-shadow: none;
   }
 
   #toolbar a.logo {
@@ -560,7 +553,7 @@ a.prev {
 
   #nav {
     padding: 0 0 12px;
-    justify-content: flex-start;
+    justify-content: center;
     flex-wrap: wrap;
   }
 
@@ -622,6 +615,12 @@ a.prev {
     -moz-column-gap: 14px;
   }
 
+  table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
   #xkcd {
     float: none !important;
     display: block;
@@ -638,7 +637,7 @@ a.prev {
   }
 
   #nav {
-    justify-content: space-between;
+    justify-content: center;
     gap: 8px;
   }
 
