@@ -420,15 +420,29 @@ function readArticle(query, callback){
 
 
 
-if(window.applicationCache){
+if('serviceWorker' in navigator){
+  window.addEventListener('load', function(){
+    navigator.serviceWorker.register('service-worker.js').then(function(registration){
+      function showUpdateAvailable(){
+        document.getElementById('update_available').style.display = '';
+      }
 
-    window.applicationCache.addEventListener('updateready', function (e) {
-        if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
-            // Browser downloaded a new app cache.
-            document.getElementById('update_available').style.display = '';
-        } else {
-            // Manifest didn't changed. Nothing new to server.
-        }
-    }, false);
+      if(registration.waiting){
+        showUpdateAvailable();
+      }
 
+      registration.addEventListener('updatefound', function(){
+        var worker = registration.installing;
+        if(!worker) return;
+
+        worker.addEventListener('statechange', function(){
+          if(worker.state == 'installed' && navigator.serviceWorker.controller){
+            showUpdateAvailable();
+          }
+        });
+      });
+    }).catch(function(err){
+      console.warn('Service worker registration failed', err);
+    });
+  });
 }
