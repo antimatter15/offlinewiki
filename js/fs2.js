@@ -727,6 +727,13 @@ function dumpurl(ptr){
 
 
 var dumps = {
+  enwiki2026top600k: {
+    indexsize: 16305127,
+    dumpsize: 2607063942,
+    name: "600k English Wikipedia June 2026 (2.4GB)",
+    indexurl: "https://data.offlinewiki.app/dumps/enwiki-20260601-top600k.index",
+    dumpurl: "https://data.offlinewiki.app/dumps/enwiki-20260601-top600k.lzma"
+  },
   enwiki2026top100k: {
     indexsize: 2449594,
     dumpsize: 782682141,
@@ -802,7 +809,7 @@ function switch_dump(name, dft){
   clear_caches()
 }
 
-var default_dump = "enwiki2026top100k";
+var default_dump = "enwiki2026top600k";
 
 // if(location.hostname == "offline-wiki.googlecode.com"){
 //   default_dump = "twelve";
